@@ -21,17 +21,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
+    <ImageView
         android:layout_width="247dp"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="WorldCinema"
-        android:textColor="@color/text_red"
-        android:textSize="40sp"
+        android:layout_height="28dp"
+        android:src="@drawable/worldcinema"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

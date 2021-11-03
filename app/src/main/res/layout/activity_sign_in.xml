@@ -21,14 +21,11 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
+    <ImageView
         android:id="@+id/textView"
         android:layout_width="207dp"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="WorldCinema"
-        android:textColor="@color/text_red"
-        android:textSize="32sp"
+        android:src="@drawable/worldcinema"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -36,7 +33,7 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <EditText
-        android:id="@+id/editTextTextEmailAddress"
+        android:id="@+id/text_email"
         android:layout_width="0dp"
         android:layout_height="44dp"
         android:layout_marginStart="16dp"
@@ -50,45 +47,51 @@
         android:textColor="@color/white"
         android:textColorHint="@color/text_grey"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <EditText
-        android:id="@+id/editTextTextPassword"
+        android:id="@+id/text_pass"
         android:layout_width="0dp"
         android:layout_height="44dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="15dp"
         android:layout_marginEnd="16dp"
         android:background="@drawable/text_background"
         android:ems="10"
         android:hint="Пароль"
         android:inputType="textPassword"
         android:paddingStart="15dp"
+        android:textColor="@color/white"
         android:textColorHint="@color/text_grey"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress" />
+        app:layout_constraintTop_toBottomOf="@+id/text_email" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btn_login"
+        android:onClick="Login"
         android:layout_width="0dp"
         android:layout_height="45dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:background="@drawable/button_background"
         android:text="Войти"
+        android:textAllCaps="false"
+        android:textSize="16sp"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword"
+        app:layout_constraintTop_toBottomOf="@+id/text_pass"
         app:layout_constraintVertical_bias="0.1"
         />
 
     <Button
+        android:id="@+id/btn_reg"
+        android:onClick="Reg"
         android:layout_width="0dp"
         android:layout_height="45dp"
         android:layout_marginStart="16dp"
@@ -96,12 +99,14 @@
         android:insetTop="0dp"
         android:insetBottom="0dp"
         android:text="Регистрация"
-        android:textColor="@color/white"
+        android:textAllCaps="false"
+        android:textSize="16sp"
+        android:textColor="@color/btn_bg_1"
         android:background="@drawable/text_background"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button"
+        app:layout_constraintTop_toBottomOf="@+id/btn_login"
         app:layout_constraintVertical_bias="0.1" />
 
 

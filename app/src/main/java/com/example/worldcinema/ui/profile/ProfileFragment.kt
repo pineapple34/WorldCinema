@@ -1,4 +1,4 @@
-package com.example.worldcinema.ui.sets
+package com.example.worldcinema.ui.profile
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,12 +8,12 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.example.worldcinema.databinding.FragmentDashboardBinding
+import com.example.worldcinema.databinding.FragmentProfileBinding
 
-class SetsFragment : Fragment() {
+class ProfileFragment : Fragment() {
 
-    private lateinit var setsViewModel: SetsViewModel
-    private var _binding: FragmentDashboardBinding? = null
+    private lateinit var profileViewModel: ProfileViewModel
+    private var _binding: FragmentProfileBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -24,14 +24,14 @@ class SetsFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        setsViewModel =
-            ViewModelProvider(this).get(SetsViewModel::class.java)
+        profileViewModel =
+            ViewModelProvider(this).get(ProfileViewModel::class.java)
 
-        _binding = FragmentDashboardBinding.inflate(inflater, container, false)
+        _binding = FragmentProfileBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textDashboard
-        setsViewModel.text.observe(viewLifecycleOwner, Observer {
+        val textView: TextView = binding.textProfile
+        profileViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
         return root

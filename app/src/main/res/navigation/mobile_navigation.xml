@@ -3,23 +3,28 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_home">
+    app:startDestination="@+id/navigation_main">
 
     <fragment
-        android:id="@+id/navigation_home"
-        android:name="com.example.worldcinema.ui.home.HomeFragment"
-        android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        android:id="@+id/navigation_main"
+        android:name="com.example.worldcinema.ui.main.MainFragment"
+        android:label="@string/title_main"
+        tools:layout="@layout/fragment_main" />
 
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.example.worldcinema.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        android:id="@+id/navigation_sets"
+        android:name="com.example.worldcinema.ui.sets.SetsFragment"
+        android:label="@string/title_sets"
+        tools:layout="@layout/fragment_sets" />
 
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.example.worldcinema.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        android:id="@+id/navigation_collections"
+        android:name="com.example.worldcinema.ui.collections.CollectionsFragment"
+        android:label="@string/title_collections"
+        tools:layout="@layout/fragment_collections" />
+    <fragment
+        android:id="@+id/navigation_profile"
+        android:name="com.example.worldcinema.ui.profile.ProfileFragment"
+        android:label="@string/title_profile"
+        tools:layout="@layout/fragment_profile" />
 </navigation>
