@@ -1,44 +1,53 @@
 package com.example.worldcinema.ui.main
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.example.worldcinema.R
 import com.example.worldcinema.databinding.FragmentMainBinding
+import com.example.worldcinema.db.Movie
+import com.example.worldcinema.db.MyRetrofit
+import com.example.worldcinema.db.RetApi
+import retrofit2.Call
+import retrofit2.Response
+import retrofit2.create
 
 class MainFragment : Fragment() {
-
-    private lateinit var mainViewModel: MainViewModel
-    private var _binding: FragmentMainBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
-    private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        mainViewModel =
-            ViewModelProvider(this).get(MainViewModel::class.java)
+        val root = inflater.inflate(R.layout.fragment_main, container, false)
+        val text: TextView = root.findViewById(R.id.text_main)
+        val image: ImageView = root.findViewById(R.id.image_main)
 
-        _binding = FragmentMainBinding.inflate(inflater, container, false)
-        val root: View = binding.root
+        val retrofit = MyRetrofit().getRetrofit().create(RetApi::class.java)
+        val call: Call<Movie> = retrofit.getMovies()
+        call.enqueue(object: retrofit2.Callback<Movie>{
+            override fun onResponse(call: Call<Movie>, response: Response<Movie>) {
+                text.setText(response.body()?.name)
+            }
 
-        val textView: TextView = binding.textMain
-        mainViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
+            override fun onFailure(call: Call<Movie>, t: Throwable) {
+
+            }
+
         })
+
         return root
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
-        _binding = null
     }
 }

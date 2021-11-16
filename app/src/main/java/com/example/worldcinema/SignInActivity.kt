@@ -14,6 +14,7 @@ import retrofit2.Call
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.create
+import android.util.Patterns
 
 class SignInActivity : AppCompatActivity() {
     lateinit var email: EditText
@@ -32,7 +33,7 @@ class SignInActivity : AppCompatActivity() {
     }
 
     fun Login(view: android.view.View) {
-        if (email.text.isNotEmpty() && password.text.isNotEmpty()){
+        if (email.text.isNotEmpty() && password.text.isNotEmpty() && Patterns.EMAIL_ADDRESS.matcher(email.text).matches()){
             val retrofit = MyRetrofit().getRetrofit().create(RetApi::class.java)
             val hashMap: HashMap<String, String> = HashMap<String, String>()
             hashMap["email"] = email.text.toString()
