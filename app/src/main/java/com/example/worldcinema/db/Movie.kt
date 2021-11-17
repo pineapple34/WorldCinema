@@ -1,9 +1,11 @@
 package com.example.worldcinema.db
 
-data class Movie(val movieId: Int,
+data class Movie(val movieId: String,
                  val name: String,
                  val description: String,
-                 val age: Int,
-                 val images: List<String>,
+                 val age: String,
+                 val images: Array<String>,
                  val poster: String,
-                 val tags: HashMap<String, String>)
+                 val tags: Array<Tag>)
+
+data class Tag(val idTags: String, val tagName: String)

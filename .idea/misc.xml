@@ -3,6 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/1/StudioProjects/WorldCinema/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/1/StudioProjects/WorldCinema/app/src/main/res/layout/fragment_main.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/1/StudioProjects/WorldCinema/app/src/main/res/layout/movie_adapter.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/1/StudioProjects/WorldCinema/app/src/main/res/menu/bottom_nav_menu.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Asus/Downloads/cinema/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Asus/Downloads/cinema/app/src/main/res/layout/activity_sign_in.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Asus/Downloads/cinema/app/src/main/res/layout/activity_sign_up.xml" value="0.36666666666666664" />

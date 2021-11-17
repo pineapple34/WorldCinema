@@ -7,12 +7,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.worldcinema.R
-import com.example.worldcinema.databinding.FragmentMainBinding
 import com.example.worldcinema.db.Movie
 import com.example.worldcinema.db.MyRetrofit
 import com.example.worldcinema.db.RetApi
@@ -28,18 +28,24 @@ class MainFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val root = inflater.inflate(R.layout.fragment_main, container, false)
-        val text: TextView = root.findViewById(R.id.text_main)
-        val image: ImageView = root.findViewById(R.id.image_main)
 
+        /*val text: TextView = root.findViewById(R.id.text_main)
+        val image: ImageView = root.findViewById(R.id.image_main)
+        val imgUrl: String = "http://cinema.areas.su/up/images/"*/
+
+        val movie_rec: RecyclerView = root.findViewById(R.id.movie_rec)
         val retrofit = MyRetrofit().getRetrofit().create(RetApi::class.java)
-        val call: Call<Movie> = retrofit.getMovies()
-        call.enqueue(object: retrofit2.Callback<Movie>{
-            override fun onResponse(call: Call<Movie>, response: Response<Movie>) {
-                text.setText(response.body()?.name)
+        val call: Call<ArrayList<Movie>> = retrofit.getMovies()
+        call.enqueue(object: retrofit2.Callback<ArrayList<Movie>>{
+            override fun onResponse(call: Call<ArrayList<Movie>>, response: Response<ArrayList<Movie>>) {
+                movie_rec.adapter = response.body()?.let { MovieAdapter(requireContext(), it) }
+
+                /*text.text = response.body()!![0].name
+                Glide.with(this@MainFragment.requireContext()).load(imgUrl + response.body()!![0].poster).into(image)*/
             }
 
-            override fun onFailure(call: Call<Movie>, t: Throwable) {
-
+            override fun onFailure(call: Call<ArrayList<Movie>>, t: Throwable) {
+                AlertDialog.Builder(this@MainFragment.context).setMessage(t.message).show()
             }
 
         })

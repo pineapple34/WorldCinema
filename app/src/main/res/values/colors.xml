@@ -11,4 +11,5 @@
     <color name="text_red">#A52B2B</color>
     <color name="text_grey">#AFAFAF</color>
     <color name="btn_bg_1">#2B70A8</color>
+    <color name="bottom_nav_bg">#1C1A19</color>
 </resources>

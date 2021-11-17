@@ -11,9 +11,6 @@ interface RetApi {
     @POST("auth/register")
     fun registration(@Body hashMap: HashMap<String, String>): Call<Void>
 
-    @GET("movies")
-    fun getMovies(): Call<Movie>
-
-    @GET("movies/cover")
-    fun getCover(): Call<Cover>
+    @GET("movies?filter=new")
+    fun getMovies(): Call<ArrayList<Movie>>
 }
