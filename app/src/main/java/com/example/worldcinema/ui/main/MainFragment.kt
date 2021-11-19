@@ -13,6 +13,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.worldcinema.R
+import com.example.worldcinema.db.Login
 import com.example.worldcinema.db.Movie
 import com.example.worldcinema.db.MyRetrofit
 import com.example.worldcinema.db.RetApi
@@ -29,19 +30,12 @@ class MainFragment : Fragment() {
     ): View? {
         val root = inflater.inflate(R.layout.fragment_main, container, false)
 
-        /*val text: TextView = root.findViewById(R.id.text_main)
-        val image: ImageView = root.findViewById(R.id.image_main)
-        val imgUrl: String = "http://cinema.areas.su/up/images/"*/
-
         val movie_rec: RecyclerView = root.findViewById(R.id.movie_rec)
         val retrofit = MyRetrofit().getRetrofit().create(RetApi::class.java)
         val call: Call<ArrayList<Movie>> = retrofit.getMovies()
         call.enqueue(object: retrofit2.Callback<ArrayList<Movie>>{
             override fun onResponse(call: Call<ArrayList<Movie>>, response: Response<ArrayList<Movie>>) {
                 movie_rec.adapter = response.body()?.let { MovieAdapter(requireContext(), it) }
-
-                /*text.text = response.body()!![0].name
-                Glide.with(this@MainFragment.requireContext()).load(imgUrl + response.body()!![0].poster).into(image)*/
             }
 
             override fun onFailure(call: Call<ArrayList<Movie>>, t: Throwable) {

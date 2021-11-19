@@ -1,6 +1,7 @@
 package com.example.worldcinema
 
 import android.content.Context
+import android.content.DialogInterface
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -41,7 +42,12 @@ class SignInActivity : AppCompatActivity() {
             val call: Call<Login> = retrofit.login(hashMap)
             call.enqueue(object: retrofit2.Callback<Login>{
                 override fun onResponse(call: Call<Login>, response: Response<Login>) {
-                    startActivity(Intent(this@SignInActivity, MainActivity::class.java))
+                    if (response.body()?.token != null){
+                        Login.userToken = response.body()?.token
+                        startActivity(Intent(this@SignInActivity, MainActivity::class.java))
+                        finish()
+                    }
+                    else AlertDialog.Builder(this@SignInActivity).setMessage("Неверные данные входа").show()
                 }
 
                 override fun onFailure(call: Call<Login>, t: Throwable) {

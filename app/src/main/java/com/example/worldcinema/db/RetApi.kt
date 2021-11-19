@@ -1,8 +1,6 @@
 package com.example.worldcinema.db
 import retrofit2.Call
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.POST
+import retrofit2.http.*
 
 interface RetApi {
     @POST("auth/login")
@@ -13,4 +11,7 @@ interface RetApi {
 
     @GET("movies?filter=new")
     fun getMovies(): Call<ArrayList<Movie>>
+
+    @GET("user")
+    fun getUser(@Header("Authorization") token: Int): Call<ArrayList<User>>
 }

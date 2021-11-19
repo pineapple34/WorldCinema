@@ -8,4 +8,7 @@ class MyRetrofit {
         .baseUrl("http://cinema.areas.su/")
         .addConverterFactory(GsonConverterFactory.create())
         .build()
+    companion object Urls{
+        val imgUrl: String = "http://cinema.areas.su/up/images/"
+    }
 }

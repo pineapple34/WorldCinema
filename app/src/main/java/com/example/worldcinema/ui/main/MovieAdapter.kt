@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.worldcinema.R
 import com.example.worldcinema.db.Movie
+import com.example.worldcinema.db.MyRetrofit
 
 class MovieAdapter(val context: Context, val movies: ArrayList<Movie>): RecyclerView.Adapter<MovieAdapter.VH>() {
     class VH(ListOfView: View): RecyclerView.ViewHolder(ListOfView){
@@ -23,9 +24,7 @@ class MovieAdapter(val context: Context, val movies: ArrayList<Movie>): Recycler
     }
 
     override fun onBindViewHolder(holder: VH, position: Int) {
-        val imgUrl: String = "http://cinema.areas.su/up/images/"
-
-        Glide.with(context).load(imgUrl + movies[position].poster).into(holder.image)
+        Glide.with(context).load(MyRetrofit.imgUrl + movies[position].poster).into(holder.image)
         holder.text.text = movies[position].name
     }
 
