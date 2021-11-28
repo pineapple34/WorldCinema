@@ -35,7 +35,7 @@ class SignInActivity : AppCompatActivity() {
 
     fun Login(view: android.view.View) {
         if (email.text.isNotEmpty() && password.text.isNotEmpty() && Patterns.EMAIL_ADDRESS.matcher(email.text).matches()){
-            val retrofit = MyRetrofit().getRetrofit().create(RetApi::class.java)
+            val retrofit = MyRetrofit.getRetrofit()
             val hashMap: HashMap<String, String> = HashMap<String, String>()
             hashMap["email"] = email.text.toString()
             hashMap["password"] = password.text.toString()

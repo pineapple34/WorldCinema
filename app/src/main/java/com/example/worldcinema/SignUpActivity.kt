@@ -35,8 +35,8 @@ class SignUpActivity : AppCompatActivity() {
     fun reg(view: View){
         if (email.text.isNotEmpty() && name.text.isNotEmpty() && soname.text.isNotEmpty() && pass.text.isNotEmpty() && pass2.text.isNotEmpty()){
             if (pass.text.toString() == pass2.text.toString()){
-                val retrofit = MyRetrofit().getRetrofit().create(RetApi::class.java)
-                val hashMap: HashMap<String, String> = HashMap<String, String>()
+                val retrofit = MyRetrofit.getRetrofit()
+                val hashMap: HashMap<String, String> = HashMap()
                 hashMap["email"] = email.text.toString()
                 hashMap["password"] = pass.text.toString()
                 hashMap["firstName"] = name.text.toString()

@@ -28,7 +28,7 @@ class ProfileFragment : Fragment() {
     ): View? {
         val root = inflater.inflate(R.layout.fragment_profile, container, false)
 
-        val retrofit = MyRetrofit().getRetrofit().create(RetApi::class.java)
+        val retrofit = MyRetrofit.getRetrofit()
         val call: Call<ArrayList<User>> = retrofit.getUser(Login.userToken!!)
         call.enqueue(object: Callback<ArrayList<User>>{
             override fun onResponse(call: Call<ArrayList<User>>, response: Response<ArrayList<User>>) {
